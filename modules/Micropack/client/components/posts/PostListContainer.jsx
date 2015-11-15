@@ -8,20 +8,24 @@ import Loading from 'Micropack/client/components/includes/Loading'
 export default class PostListContainer extends Component {
     getMeteorData () {
         Meteor.subscribe("posts")
+        const selectors = {}
+        const fields = {
+            sort: {
+                submitted: -1
+            }
+        }
+        const allPosts = Posts.find(selectors, fields).fetch();
         return {
-            //postsReady: sub.ready(),
-            allPosts: Posts.find().fetch()
+            allPosts
 
         }
     }
     render () {
-        let renderedComponent = <Loading />
-        if (this.data.allPosts) {
-            renderedComponent = <PostList allPosts={this.data.allPosts} />
+        if (!this.data.allPosts) {
+            return <Loading/>
         }
         return (
-            renderedComponent
+            <PostList allPosts={this.data.allPosts} />
         )
-
     }
 }

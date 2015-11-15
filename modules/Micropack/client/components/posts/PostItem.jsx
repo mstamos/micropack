@@ -22,15 +22,19 @@ export default class PostItem extends Component{
     }
     // This function get a url and return the domain
     getDomain (url) {
-        let a = document.createElement('a');
-        a.href = url;
-        return a.hostname;
-    }
-    // This function called when discussion button clicked and redirect us into post
-    showPost (event) {
-        event.preventDefault();
-        //FlowRouter.go(`/posts/${ this.props.post._id }`);
+        let domain = url;
+        //find & remove protocol (http, ftp, etc.) and get domain
+        if (url.indexOf("://") > -1) {
+            domain = url.split('/')[2];
+        }
+        else {
+            domain = url.split('/')[0];
+        }
 
+        //find & remove port number
+        domain = domain.split(':')[0];
+
+        return domain;
     }
     render () {
         let owner= false;

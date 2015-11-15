@@ -20,22 +20,10 @@ import PostItem from './PostItem'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class PostPage extends Component {
-    //startMeteorSubscriptions() {
-    //    const subs = {
-    //        post: Meteor.subscribe("post", this.props.params.postId),
-    //        comments: Meteor.subscribe("comments", this.props.params.postId)
-    //    }
-    //    return subs
-    //}
-
     getMeteorData() {
-        //const subs = this.startMeteorSubscriptions()
-        const post = Meteor.subscribe("post", this.props.params.postId)
+        Meteor.subscribe("post", this.props.params.postId)
         Meteor.subscribe("comments", this.props.params.postId)
-        post.ready()
         return {
-            //postReady: subs.post.ready(),
-            //commentsReady: subs.comments.ready(),
             postData: Posts.findOne(),
             comments: Comments.find({postId: this.props.params.postId}).fetch(),
             userIsLogged: Meteor.userId()
@@ -62,7 +50,6 @@ export default class PostPage extends Component {
     render() {
         let post = this.data.postData;
         let renderedComments = this.data.comments.map((comment) => {
-            console.log(comment);
             return <CommentItem
                 key={comment._id}
                 comment={comment}
