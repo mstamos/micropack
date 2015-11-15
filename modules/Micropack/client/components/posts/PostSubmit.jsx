@@ -12,7 +12,6 @@ import {validatePost} from 'Micropack/lib/collections/helpers.jsx'
  */
 @ReactMixin.decorate(ReactMeteorData)
 export default class PostSubmit extends Component {
-
     getMeteorData () {
         return {
             userIsLogged: Meteor.userId()
@@ -117,7 +116,6 @@ export default class PostSubmit extends Component {
                 <AccessDenied/>
             );
         }
-
     }
 }
 

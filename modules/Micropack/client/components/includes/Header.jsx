@@ -6,7 +6,8 @@ import ReactMixin from 'react-mixin';
 const LoginButtons = BlazeToReact('loginButtons');
 
 @ReactMixin.decorate(ReactMeteorData)
-export default class Header extends Component {
+export default
+class Header extends Component {
     getMeteorData() {
         // This method knows how to listen to Meteor's reactive data sources,
         // Here we change userIsLoggedIn to prevent users to see on the header the Submit Post link
@@ -14,8 +15,7 @@ export default class Header extends Component {
             userIsLoggedIn: Meteor.userId()
         }
     }
-
-    render () {
+    render() {
         return (
             <div>
                 <nav className="navbar navbar-default" role="navigation">
@@ -28,17 +28,23 @@ export default class Header extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand app-title" href="/">Microscope</a>
+                            <Link
+                                to="/"
+                                className="navbar-brand app-title"
+                                >
+                                Microscope
+                            </Link>
                         </div>
                         <div className="collapse navbar-collapse" id="navigation">
                             <ul className="nav navbar-nav">
                                 {this.data.userIsLoggedIn &&
-                                    <li>
-                                        <Link
-                                            to={`/submit`}
-                                            className="submit-post-but">
-                                        </Link>
-                                    </li>
+                                <li>
+                                    <Link
+                                        to={`/submit`}
+                                        className="submit-post-but">
+                                        Submit
+                                    </Link>
+                                </li>
                                 }
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
