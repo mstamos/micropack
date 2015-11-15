@@ -17,7 +17,6 @@ export default class PostListContainer extends Component {
         const allPosts = Posts.find(selectors, fields).fetch();
         return {
             allPosts
-
         }
     }
     render () {

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router'
 import ReactMixin from 'react-mixin';
 
 // We get the user login system from blaze
@@ -31,7 +32,14 @@ export default class Header extends Component {
                         </div>
                         <div className="collapse navbar-collapse" id="navigation">
                             <ul className="nav navbar-nav">
-                                {this.data.userIsLoggedIn ? <li><a href="/submit" className="submit-post-but">Submit Post</a></li> : ''}
+                                {this.data.userIsLoggedIn &&
+                                    <li>
+                                        <Link
+                                            to={`/submit`}
+                                            className="submit-post-but">
+                                        </Link>
+                                    </li>
+                                }
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <LoginButtons/>
