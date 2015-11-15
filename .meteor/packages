@@ -27,3 +27,5 @@ accounts-ui
 accounts-password
 twbs:bootstrap
 check
+sanjo:jasmine
+velocity:html-reporter

@@ -1,4 +1,4 @@
-# Microscope + React + Webpack = Microreact
+# Microscope + React + Webpack = Micropack
 
 This repository combines Meteor and Webpack. The project is based on [Microscope] (https://github.com/DiscoverMeteor/Microscope),
 Microscope is an app that someone can build by reading the [Discover Meteor Book] (http://www.discovermeteor.com). You can 
