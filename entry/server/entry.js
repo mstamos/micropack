@@ -1,7 +1,10 @@
-import 'TodoApp/todo-methods';
-import 'TodoApp/server/todo-subscriptions'
+// Methods for optimistic updates
+import 'Micropack/lib/collections/posts_methods';
+import 'Micropack/lib/collections/comments_methods';
+import 'Micropack/server/publications';
+import 'Micropack/server/fixtures';
 
-// Do server-rendering only in proudction mode
+// Do server-rendering only in production mode
 if (process.env.NODE_ENV === 'production') {
   // Load Webpack infos for SSR
   ReactRouterSSR.LoadWebpackStats(WebpackStats);

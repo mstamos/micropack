@@ -1,9 +1,10 @@
 import { Route } from 'react-router';
 
-import todoRoutes from 'TodoApp/client/routes'
+import Micropackroutes from 'Micropack/client/routes'
 
 ReactRouterSSR.Run(
-  <Route>
-    {todoRoutes}
-  </Route>
+    <Route>
+      {Micropackroutes}
+    </Route>
 );
+

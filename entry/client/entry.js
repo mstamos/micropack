@@ -1,5 +1,6 @@
 // Methods for optimistic updates
-import 'TodoApp/todo-methods';
+import 'Micropack/lib/collections/posts_methods';
+import 'Micropack/lib/collections/comments_methods';
 
 import './routes';
 
