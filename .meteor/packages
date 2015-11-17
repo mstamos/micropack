@@ -28,4 +28,5 @@ accounts-password
 twbs:bootstrap
 check
 sanjo:jasmine
+velocity:console-reporter
 velocity:html-reporter
